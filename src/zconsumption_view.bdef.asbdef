@@ -1,0 +1,12 @@
+projection;
+//strict ( 1 );
+
+define behavior for zconsumption_view alias Student
+{
+  use create;
+  use update;
+  use delete;
+
+  use action SetAdmitted;
+  use action statusUpdate;
+}

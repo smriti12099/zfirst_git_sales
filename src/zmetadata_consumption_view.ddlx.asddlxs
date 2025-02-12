@@ -1,0 +1,164 @@
+@Metadata.layer: #PARTNER
+@UI:{ 
+ headerInfo :{  
+ typeName:'Student',
+    typeNamePlural:'students',
+    title :{ type :#STANDARD ,label:'Student', value :'Id' }
+    
+ 
+  }
+
+
+
+
+
+
+}
+annotate entity zinterface_view
+    with 
+{
+   @UI.facet: [{ id : 'Student',
+         purpose :#STANDARD,
+         type : #IDENTIFICATION_REFERENCE,
+         label :'Student',
+         position : 10
+},
+          { 
+          id : 'AcademicResult',
+         purpose :#STANDARD,
+         type : #LINEITEM_REFERENCE,
+         label :'Academic Result',
+         position : 20,
+         targetElement : '_academicres' 
+         },   
+         
+         
+         
+          { 
+          id : 'new',
+         purpose :#STANDARD,
+         type : #LINEITEM_REFERENCE,
+         label :'new',
+         position : 30,
+         targetElement : '_new' 
+         }   
+   ]
+   
+   
+   
+   @UI: { 
+    lineItem:[ { position : 10 , 
+                      label : 'update status',
+                      type :#FOR_ACTION,
+                      dataAction : 'statusUpdate',
+                      invocationGrouping : #ISOLATED
+    } ] ,
+     identification : [{ position : 10 ,label: 'Student ID' }]
+     }
+ Id;
+    
+     @UI: { lineItem:[ { position : 20 , label :'Firstname' } ] ,
+     identification : [{ position : 20 ,label: 'Firstname' }],
+       selectionField :[ { position : 20 } ]
+          }
+    Firstname;
+     
+     @UI: { lineItem:[ { position : 30 , label :' Lastname'   } ] ,
+     identification : [{ position : 30 ,label: ' Lastname' }],
+    
+      selectionField :[ { position : 30 } ]
+     }
+     
+    Lastname;
+    
+     @UI: { lineItem:[ { position : 40 , label :' Age' } ] ,
+     identification : [{ position : 40 ,label: ' Age' }],
+      selectionField :[ { position : 40 } ]
+     }
+     Age;
+     
+     
+      @UI: { lineItem:[ { position : 15  } ] ,
+     identification : [{ position : 15  }]
+     
+     }
+   bonusamount;
+     
+     
+    
+     
+    
+     @UI: { lineItem:[ { position : 50 , label :' Course' } ] ,
+     identification : [{ position : 50 ,label: ' Course' }],
+      selectionField :[ { position : 50 } ]
+     }
+    Course;
+    
+     @UI: { lineItem:[ { position : 60 , label :'Courseduration' }
+     
+     ] ,
+     identification : [{ position : 60 ,label: 'Courseduration' }],
+      selectionField :[ { position : 60 } ]
+     }
+     
+     
+     
+     
+     
+     
+    Courseduration;
+    
+     @UI: { lineItem:[ { position : 70 , label :' Status' } ,
+     { type: #FOR_ACTION , dataAction:'SetAdmitted' , label :'set admitted' } ] ,
+     identification : [{ position : 70 ,label: ' Status' },
+     { type: #FOR_ACTION , dataAction:'SetAdmitted' , label :'set admitted' } ] ,
+      selectionField :[ { position : 70 } ]
+     }
+    Status;
+    
+     @UI: { lineItem:[ { position : 80 , label :' Gender' } ] ,
+     identification : [{ position : 80 ,label: ' Gender' }]
+    
+     }
+     @Consumption.valueHelpDefinition:[ { entity:{ name:'ZVIEW_MALE_FEMALE' , element :'Value'},
+     distinctValues : true
+     ,
+     additionalBinding:[ { localElement:'Genderdesc',
+                                 element :'Description',
+                                   usage :#FILTER_AND_RESULT} ]
+      } ]
+      
+      
+    Gender;
+    
+    
+    
+    @UI:{ identification : [ { position : 85 , label :'' } ]}
+    
+    Genderdesc;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     @UI: { lineItem:[ { position : 90 , label :' Dob' } ] ,
+     identification : [{ position : 90 ,label: ' Dob' }],
+      selectionField :[ { position : 90 } ]
+     }
+    Dob;
+    
+    
+   
+  
+    
+    
+    
+    
+    
+    
+}

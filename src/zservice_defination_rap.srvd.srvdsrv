@@ -1,0 +1,6 @@
+@EndUserText.label: 'servide defination'
+define service Zservice_defination_rap {
+  expose zinterface_view;
+  expose ZI_ACADEAMIC_RESULT_5000 as AcademicResult;
+  expose znew_data_view           as new;
+}

@@ -1,0 +1,58 @@
+ @Metadata.layer: #PARTNER
+@UI:{ 
+ headerInfo :{  typeName:'academic result details',
+    typeNamePlural:'academic result details',
+    title :{ type :#STANDARD ,label:'academic result details', value :'Id' }
+    
+ 
+  }
+
+
+
+}
+
+annotate entity znew_data_view
+    with 
+{
+   @UI.facet: [{ id : 'new',
+         purpose :#STANDARD,
+         type : #IDENTIFICATION_REFERENCE,
+
+         label :'new',
+         position : 20
+          }]
+   
+   
+   @UI: { lineItem:[ { position : 20 , label :'Student ID' } ], 
+   identification : [{ position : 20 , label: 'id' } ]
+     }
+     //@UI.hidden:true
+    
+ Id;
+    
+     
+
+     
+     
+    
+    
+    
+
+     
+    
+     
+     
+     
+     
+     
+     
+     
+    
+    
+    
+    
+    
+    
+    
+     
+}

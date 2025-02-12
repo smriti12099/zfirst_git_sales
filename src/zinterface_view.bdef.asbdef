@@ -1,0 +1,84 @@
+managed implementation in class zbp_interface_view unique;
+//strict ;
+
+define behavior for zinterface_view alias student
+persistent table zrap_table
+
+lock master
+ //master ( global, instance )
+//etag master
+{
+  create;
+  update;
+  delete;
+  field ( numbering: managed, readonly ) Id;
+
+association  _academicres {create;}
+association _new {create;}
+
+action statusUpdate;
+  action (features : instance) SetAdmitted result [1] $self;
+  validation validateAge on save {field Age;create;}
+  determination updateCourseDuration on save {field Course;}
+//field (readonly) BonusAmount;
+  mapping for ZRAP_TABLE
+  {
+       Id =  id;
+     Firstname  = firstname;
+     Lastname = lastname;
+     Age = age;
+     Course = course;
+     Courseduration = courseduration;
+     Status = status;
+     Gender = gender;
+     Dob = dob;
+
+
+
+}
+}
+define behavior for  ZI_ACADEAMIC_RESULT_5000 alias AcademicResult
+
+
+persistent table ztabular_format
+lock dependent by _student
+//authorization dependent by _student
+//etag master <field_name>
+{
+
+  update;
+  delete;
+  association _student;
+  field (readonly) id;
+ field (readonly) course_desc;
+  field (readonly) semester_desc ;
+
+ field(readonly) semres_desc;
+
+
+
+  }
+
+
+
+
+
+
+
+  define behavior for  znew_data_view alias new
+
+
+persistent table zrap_table
+lock dependent by _new
+//authorization dependent by _student
+//etag master <field_name>
+{
+
+  update;
+  delete;
+  association _new;
+  field (readonly) id;
+
+
+
+  }

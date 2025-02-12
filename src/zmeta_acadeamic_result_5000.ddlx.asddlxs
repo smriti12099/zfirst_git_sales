@@ -1,0 +1,99 @@
+ @Metadata.layer: #PARTNER
+@UI:{ 
+ headerInfo :{  typeName:'academic result details',
+    typeNamePlural:'academic result details',
+    title :{ type :#STANDARD ,label:'academic result details', value :'Id' }
+    
+ 
+  }
+
+
+
+}
+@Search.searchable: true
+annotate entity  ZI_ACADEAMIC_RESULT_5000
+    with 
+{
+   @UI.facet: [{ id : 'Acadmic',
+         purpose :#STANDARD,
+         type : #IDENTIFICATION_REFERENCE,
+
+         label :'academic result details',
+         position : 10
+          }]
+   
+   
+   @UI: { lineItem:[ { position : 10 , label :'Student ID' } ] 
+   
+     }
+     //@UI.hidden:true
+    
+ Id;
+    
+     @UI: { lineItem:[ { position : 20 ,  importance : #HIGH ,label :'Course' } ] ,
+     identification : [{ position : 20 , label: 'Course' } ]
+      }
+     @Search.defaultSearchElement: true
+     @Consumption.valueHelpDefinition:[ { entity:{ name:'ZI_COURSE' ,element:'Value'},
+      
+     additionalBinding: [ { localElement: 'course_desc' ,element :'Description'} ]
+  
+  }]
+Course;
+
+
+     @UI: { lineItem:[ { position : 30 ,importance : #HIGH, label :'' } ] ,
+     identification : [{ position : 30 ,label : '' }]
+     
+    }
+    course_desc;
+    
+     
+     @UI: { lineItem:[ { position : 40 ,  importance : #HIGH ,label :'Semester' } ] ,
+     identification : [{ position : 40 ,label: 'Semester' }]
+      }
+Semester;
+ 
+    
+    
+    
+    
+     @UI: { lineItem:[ { position : 50 , importance : #HIGH, label :'' } ] ,
+     identification : [{ position : 50 ,label: '' }]
+      }
+     
+    
+    
+     semester_desc;
+    
+     
+    
+     @UI: { lineItem:[ { position : 60 , importance : #HIGH,  label :'Status' } ] ,
+     identification : [{ position : 60 ,label : 'Status' }]
+     }
+    
+ Semresult;
+    
+     @UI: { lineItem:[ { position : 70 , label :'' } ] ,
+     identification : [{ position : 70 ,label : '' }]
+     }
+     
+   semres_desc;
+     
+    
+     
+     
+     
+     
+     
+     
+     
+    
+    
+    
+    
+    
+    
+    
+     
+}
